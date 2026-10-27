@@ -1,43 +1,52 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./src/**/*.{html,ts}"],
+export default {
+  darkMode: 'class',
+  content: ["./index.html", "./src/**/*.{svelte,js,ts}"],
   theme: {
     extend: {
       colors: {
-        primary: "#0066CC",
-        "primary-light": "#4D94FF",
-        success: "#00AA00",
-        warning: "#FF6600",
-        danger: "#CC0000",
-        "background-primary": "#FFFFFF",
-        "background-secondary": "#F5F5F5",
-        "border-default": "#CCCCCC",
-        "border-light": "#E8E8E8",
-        "text-primary": "#000000",
-        "text-secondary": "#666666",
-        "text-disabled": "#AAAAAA",
-        "surface-hover": "#F0F0F0",
-      },
-      fontSize: {
-        body: ["14px", { lineHeight: "1.5", fontWeight: "400" }],
-        small: ["12px", { lineHeight: "1.4", fontWeight: "400" }],
-        label: ["12px", { lineHeight: "1.4", fontWeight: "600" }],
-      },
-      borderRadius: {
-        sm: "4px",
-        md: "8px",
-        lg: "12px",
-      },
-      spacing: {
-        xs: "4px",
-        sm: "8px",
-        md: "16px",
-        lg: "24px",
-        xl: "32px",
-        "2xl": "48px",
+        // Light theme palette
+        primary: '#3B82F6',      // Bright blue
+        secondary: '#0EA5E9',    // Cyan
+        accent: '#06B6D4',       // Teal accent
+        // Theme-aware tokens: values come from CSS variables in app.css (:root / .dark)
+        surface: 'rgb(var(--color-surface) / <alpha-value>)',
+        background: 'rgb(var(--color-background) / <alpha-value>)',
+        foreground: 'rgb(var(--color-foreground) / <alpha-value>)',
+        text: 'rgb(var(--color-text) / <alpha-value>)',
+        textSecondary: 'rgb(var(--color-text-secondary) / <alpha-value>)',
+        textMuted: 'rgb(var(--color-text-muted) / <alpha-value>)',
+        border: 'rgb(var(--color-border) / <alpha-value>)',
+        darkBackground: '#1a1a1a',
+        lightBackground: '#ffffff',
+        darkText: '#ffffff',
+        lightText: '#000000',
+        toggleAccent: '#007bff',
+        success: '#10B981',      // Green
+        warning: '#F59E0B',      // Amber
+        danger: '#EF4444',       // Red
+        info: '#3B82F6',         // Blue
       },
       fontFamily: {
-        mono: ["Courier New", "monospace"],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        xs: ['0.75rem', '1rem'],
+        sm: ['0.875rem', '1.25rem'],
+        base: ['1rem', '1.5rem'],
+        lg: ['1.125rem', '1.75rem'],
+        xl: ['1.25rem', '1.75rem'],
+        '2xl': ['1.5rem', '2rem'],
+      },
+      borderRadius: {
+        sm: '0.375rem',
+        md: '0.5rem',
+        lg: '0.75rem',
+        xl: '1rem',
+      },
+      spacing: {
+        sidebar: '240px',
+        topbar: '64px',
       },
     },
   },
