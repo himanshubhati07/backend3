@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-background: 255 255 255; /* light-background #ffffff */
+  --color-foreground: 255 255 255;
+  --color-surface: 243 244 246;
+  --color-text: 0 0 0; /* light-text #000000 */
+  --color-text-secondary: 75 85 99;
+  --color-text-muted: 107 114 128;
+  --color-border: 229 231 235;
+}
+
+.dark {
+  --color-background: 26 26 26; /* dark-background #1a1a1a */
+  --color-foreground: 34 34 34;
+  --color-surface: 42 42 42;
+  --color-text: 255 255 255; /* dark-text #ffffff */
+  --color-text-secondary: 209 213 219;
+  --color-text-muted: 156 163 175;
+  --color-border: 58 58 58;
+}
+
+* {
+  @apply box-border;
+}
+
+html,
+body {
+  @apply bg-background text-text transition-colors;
+}

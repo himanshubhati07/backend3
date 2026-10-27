@@ -1,15 +1,9 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { provideRouter, withComponentInputBinding } from '@angular/router';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { AppComponent } from './app/app.component';
-import { routes } from './app/app.routes';
-import { authInterceptor } from './app/services/auth.interceptor';
+import { mount } from 'svelte'
+import './app.css'
+import App from './App.svelte'
 
-bootstrapApplication(AppComponent, {
-  providers: [
-    provideRouter(routes, withComponentInputBinding()),
-    provideAnimationsAsync(),
-    provideHttpClient(withInterceptors([authInterceptor])),
-  ],
-});
+const app = mount(App, {
+  target: document.getElementById('app')!,
+})
+
+export default app

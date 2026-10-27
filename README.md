@@ -1,35 +1,29 @@
-# nodjs angular
+# images
 
-A complete Angular frontend for a Node.js REST API management portal. Features user authentication, role-based access control (RBAC), user and resource management, health monitoring, API documentation viewer, and audit logging.
+A professional project management and code generation dashboard built with Svelte 5. Features a lightweight dark-to-light theme conversion, project statistics tracking, and cognitive agent management.
 
 ## Tech stack
 
-Angular (standalone components) + TypeScript, Tailwind CSS.
+Svelte 5 + TypeScript, Vite, Tailwind CSS, svelte-routing, axios.
 
 ## Getting started
 
 ```
 npm install --legacy-peer-deps
-npm start
+cp .env.example .env
+npm run dev
 ```
 
-Then open http://localhost:56951
+Then open http://localhost:51697
 
 ## Environment variables
 
-Angular does not read .env files directly — see .env.example, which documents the value; copy it into src/environments/environment.ts's apiUrl field. Every entity runs on local mock data (readonly USE_MOCK = true in each <entity>-store.service.ts) until that's set and each entity's flag is flipped to false.
+See .env.example. VITE_API_URL is optional — every entity runs on local mock data (USE_MOCK = true in src/data/store.ts) until it's set and each entity's flag is flipped to false.
 
 ## Project structure
 
-- **pages** — All screen components (Login, Signup, Dashboard, Users, Resources, Health, API Docs, Audit, NotFound)
-- **components** — Shared UI components (Sidebar, TopBar, ToastContainer)
-- **layout** — Shell component for authenticated layout wrapper
-- **services** — Authentication, data stores (User, Resource), health, audit, API docs, toast notifications, HTTP interceptor
-- **guards** — Auth guard for route protection
-- **types** — TypeScript type definitions for all entities
-- **data** — Mock data seeded into localStorage for local development
-- **environments** — Environment configuration with API URL placeholder
-
-## Backend
-
-A Node.js/Express/PostgreSQL API lives in `backend/` (JWT auth, RBAC, Swagger docs, Jest/Supertest tests). See `backend/README.md` for installation, configuration, development and production steps.
+- **src/pages** — Page components for each route (Home, Projects, Connections, Team, Learning, Agent, Settings, NotFound)
+- **src/components** — Shared UI components (Layout, Sidebar, TopBar, Redirect)
+- **src/data** — Mock data, localStorage-backed CRUD store, and data fetching gates
+- **src/api** — Axios client with request/response interceptors
+- **src/types** — TypeScript type definitions for all entities
